@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI헬스케어융합학과 | CHA University">
+<meta property="og:description" content="인공지능과 바이오헬스케어의 융합을 통해 차세대 의료 혁신을 선도하는 연구와 교육">
+<meta property="og:image" content="cha-ai-thumbnail.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="cha-ai-thumbnail.png">
+<title>AI헬스케어융합학과 | CHA University of Medicine and Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-card: #151d2e;
+  --bg-card-hover: #1a2540;
+  --accent-cyan: #00d4ff;
+  --accent-teal: #0ee6b7;
+  --accent-blue: #3b82f6;
+  --accent-violet: #8b5cf6;
+  --accent-rose: #f43f5e;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-subtle: rgba(255,255,255,0.06);
+  --glow-cyan: rgba(0,212,255,0.15);
+  --glow-teal: rgba(14,230,183,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans KR', 'Sora', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* === HERO SECTION === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,212,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(14,230,183,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 80% 70%, rgba(139,92,246,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Animated grid background */
+.grid-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 70%);
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* DNA helix decorative elements */
+.dna-strand {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  opacity: 0.08;
+}
+.dna-strand.left { left: 8%; background: linear-gradient(180deg, transparent, var(--accent-cyan), transparent); }
+.dna-strand.right { right: 8%; background: linear-gradient(180deg, transparent, var(--accent-teal), transparent); }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.university-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.02);
+  animation: fadeDown 1s ease-out;
+}
+
+.university-badge .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent-teal);
+  box-shadow: 0 0 8px var(--accent-teal);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero-title-en {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  color: var(--accent-cyan);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  animation: fadeDown 1s ease-out 0.15s both;
+}
+
+.hero-title {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  animation: fadeDown 1s ease-out 0.3s both;
+}
+
+.hero-title .highlight {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-weight: 300;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+  animation: fadeDown 1s ease-out 0.45s both;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  animation: fadeUp 1s ease-out 0.6s both;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2.2rem;
+  font-weight: 400;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: fadeUp 1s ease-out 0.9s both;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(180deg, var(--accent-cyan), transparent);
+  animation: scrollDown 2s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* === SECTION COMMON === */
+section {
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* === LABS SECTION === */
+.labs-section {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+}
+
+.labs-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.lab-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+
+.lab-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--card-accent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.lab-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255,255,255,0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.lab-card:hover::before { opacity: 1; }
+
+.lab-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.15);
+}
+
+.lab-name-en {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.lab-name-abbr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+  opacity: 0.8;
+}
+
+.lab-professor {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.lab-professor strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.lab-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+
+.lab-keyword {
+  font-size: 0.68rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: 'Sora', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* Card accent colors */
+.lab-card:nth-child(1) { --card-accent: linear-gradient(90deg, #00d4ff, #3b82f6); }
+.lab-card:nth-child(2) { --card-accent: linear-gradient(90deg, #0ee6b7, #06b6d4); }
+.lab-card:nth-child(3) { --card-accent: linear-gradient(90deg, #f59e0b, #f97316); }
+.lab-card:nth-child(4) { --card-accent: linear-gradient(90deg, #8b5cf6, #a855f7); }
+.lab-card:nth-child(5) { --card-accent: linear-gradient(90deg, #f43f5e, #ec4899); }
+.lab-card:nth-child(6) { --card-accent: linear-gradient(90deg, #10b981, #34d399); }
+.lab-card:nth-child(7) { --card-accent: linear-gradient(90deg, #3b82f6, #6366f1); }
+.lab-card:nth-child(8) { --card-accent: linear-gradient(90deg, #f472b6, #e879f9); }
+.lab-card:nth-child(9) { --card-accent: linear-gradient(90deg, #fbbf24, #a3e635); }
+.lab-card:nth-child(10) { --card-accent: linear-gradient(90deg, #fb923c, #f43f5e); }
+.lab-card:nth-child(11) { --card-accent: linear-gradient(90deg, #06b6d4, #3b82f6); }
+.lab-card:nth-child(12) { --card-accent: linear-gradient(90deg, #ec4899, #8b5cf6); }
+
+/* === VISION SECTION === */
+.vision-section {
+  text-align: center;
+}
+
+.vision-cards {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.vision-card {
+  padding: 2.5rem 1.5rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  background: var(--bg-card);
+  transition: all 0.3s;
+}
+
+.vision-card:hover {
+  border-color: rgba(0,212,255,0.2);
+  box-shadow: 0 0 40px var(--glow-cyan);
+}
+
+.vision-icon {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.vision-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.vision-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer-logo {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.footer-dept {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.footer-info {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 2;
+}
+
+.footer-copy {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 2rem;
+  opacity: 0.5;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hero-stats { gap: 1.5rem; }
+  .labs-grid { grid-template-columns: 1fr; }
+  .vision-cards { grid-template-columns: 1fr; }
+  section { padding: 4rem 1.5rem; }
+  .dna-strand { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="grid-bg"></div>
+  <div class="dna-strand left"></div>
+  <div class="dna-strand right"></div>
+
+  <div class="hero-content">
+    <div class="university-badge">
+      <span class="dot"></span>
+      CHA University · 바이오헬스케어 특성화대학
+    </div>
+
+    <div class="hero-title-en">Department of AI Healthcare Convergence</div>
+    <h1 class="hero-title">
+      <span class="highlight">AI</span>헬스케어융합학과
+    </h1>
+    <p class="hero-subtitle">
+      인공지능과 바이오헬스케어의 융합을 통해<br>
+      차세대 의료 혁신을 선도하는 연구와 교육
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">12</div>
+        <div class="stat-label">Research Labs</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">12+</div>
+        <div class="stat-label">Faculty</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">MS · PhD</div>
+        <div class="stat-label">Programs</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Explore</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===== VISION ===== -->
+<section class="vision-section">
+  <div class="section-header fade-in">
+    <div class="section-tag">// Our Vision</div>
+    <h2 class="section-title">AI × Healthcare × Science</h2>
+    <p class="section-desc">데이터 사이언스와 생성형 AI를 활용하여 바이오헬스케어 산업의 실질적 문제를 해결합니다</p>
+  </div>
+
+  <div class="vision-cards">
+    <div class="vision-card fade-in">
+      <div class="vision-icon">🧬</div>
+      <h3>Translational Research</h3>
+      <p>임상 연구부터 제약 생산, 경영까지 AI 기반 중개 연구를 수행합니다</p>
+    </div>
+    <div class="vision-card fade-in">
+      <div class="vision-icon">🤖</div>
+      <h3>AI Innovation</h3>
+      <p>머신러닝, 예측 분석, 컴퓨터 비전 등 최신 AI 기술을 헬스케어에 적용합니다</p>
+    </div>
+    <div class="vision-card fade-in">
+      <div class="vision-icon">🎯</div>
+      <h3>SCIE / SSCI Publication</h3>
+      <p>국제 수준의 연구 성과를 목표로 체계적 연구 역량을 구축합니다</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESEARCH LABS ===== -->
+<section class="labs-section">
+  <div class="section-header fade-in">
+    <div class="section-tag">// Research Laboratories</div>
+    <h2 class="section-title">연구실</h2>
+    <p class="section-desc">AI와 헬스케어 융합 분야를 이끄는 12개 전문 연구실</p>
+  </div>
+
+  <div class="labs-grid">
+
+    <!-- 1. 김억환 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🏢</div>
+      <div class="lab-name-en">AI-Driven Organization Lab</div>
+      <div class="lab-name-abbr">ADO LAB</div>
+      <div class="lab-professor"><strong>김억환</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Organization Science</span>
+        <span class="lab-keyword">AI Management</span>
+        <span class="lab-keyword">Digital Transformation</span>
+      </div>
+    </div>
+
+    <!-- 2. 김정환 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">👁️</div>
+      <div class="lab-name-en">Visual Intelligence & Ad Tech Lab</div>
+      <div class="lab-name-abbr">VIAT LAB</div>
+      <div class="lab-professor"><strong>김정환</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Computer Vision</span>
+        <span class="lab-keyword">Ad Technology</span>
+        <span class="lab-keyword">Visual AI</span>
+      </div>
+    </div>
+
+    <!-- 3. 박노일 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">💬</div>
+      <div class="lab-name-en">InterACT AI Lab</div>
+      <div class="lab-name-abbr">InterACT LAB</div>
+      <div class="lab-professor"><strong>박노일</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">AI Interaction</span>
+        <span class="lab-keyword">Communication</span>
+        <span class="lab-keyword">HCI</span>
+      </div>
+    </div>
+
+    <!-- 4. 박대근 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">📊</div>
+      <div class="lab-name-en">AI Forecasting Analytics Lab</div>
+      <div class="lab-name-abbr">AI ForA LAB</div>
+      <div class="lab-professor"><strong>박대근</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Forecasting</span>
+        <span class="lab-keyword">Predictive Analytics</span>
+        <span class="lab-keyword">Data Science</span>
+      </div>
+    </div>
+
+    <!-- 5. 박진훈 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🎨</div>
+      <div class="lab-name-en">Intelligent Visual Art & Communication Lab</div>
+      <div class="lab-name-abbr">IVAC LAB</div>
+      <div class="lab-professor"><strong>박진훈</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Visual Art</span>
+        <span class="lab-keyword">AI Communication</span>
+        <span class="lab-keyword">Creative AI</span>
+      </div>
+    </div>
+
+    <!-- 6. 배장표 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🖼️</div>
+      <div class="lab-name-en">Multimodal AI & Medical Imaging Lab</div>
+      <div class="lab-name-abbr">MAMI LAB</div>
+      <div class="lab-professor"><strong>배장표</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Image Processing</span>
+        <span class="lab-keyword">Multimodal AI</span>
+        <span class="lab-keyword">Medical Imaging</span>
+      </div>
+    </div>
+
+    <!-- 7. 이상민 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🔗</div>
+      <div class="lab-name-en">AI & Blockchain Healthcare Data Lab</div>
+      <div class="lab-name-abbr">ABHD LAB</div>
+      <div class="lab-professor"><strong>이상민</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Artificial Intelligence</span>
+        <span class="lab-keyword">Blockchain</span>
+        <span class="lab-keyword">Healthcare Database</span>
+      </div>
+    </div>
+
+    <!-- 8. 이희정 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">📈</div>
+      <div class="lab-name-en">Computational Marketing Lab</div>
+      <div class="lab-name-abbr">CM LAB</div>
+      <div class="lab-professor"><strong>이희정</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Computational Marketing</span>
+        <span class="lab-keyword">Consumer Analytics</span>
+        <span class="lab-keyword">Marketing AI</span>
+      </div>
+    </div>
+
+    <!-- 9. 장정헌 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🔬</div>
+      <div class="lab-name-en">Science Translation & AI Intelligence Lab</div>
+      <div class="lab-name-abbr">STAI LAB</div>
+      <div class="lab-professor"><strong>장정헌</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Science Translation</span>
+        <span class="lab-keyword">AI Intelligence</span>
+        <span class="lab-keyword">Knowledge Systems</span>
+      </div>
+    </div>
+
+    <!-- 10. 정경인 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🧬</div>
+      <div class="lab-name-en">Precision Translational AI Lab</div>
+      <div class="lab-name-abbr">PTA LAB</div>
+      <div class="lab-professor"><strong>정경인</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Precision Medicine</span>
+        <span class="lab-keyword">Translational AI</span>
+        <span class="lab-keyword">Bioinformatics</span>
+      </div>
+    </div>
+
+    <!-- 11. 정석률 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🏃</div>
+      <div class="lab-name-en">Predictive Sports Medicine Lab</div>
+      <div class="lab-name-abbr">PSM LAB</div>
+      <div class="lab-professor"><strong>정석률</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Sports Medicine</span>
+        <span class="lab-keyword">Predictive Modeling</span>
+        <span class="lab-keyword">Biomechanics</span>
+      </div>
+    </div>
+
+    <!-- 12. 조백환 -->
+    <div class="lab-card fade-in">
+      <div class="lab-icon">🧠</div>
+      <div class="lab-name-en">Machine Intelligence for Healthcare Lab</div>
+      <div class="lab-name-abbr">MIH LAB</div>
+      <div class="lab-professor"><strong>조백환</strong> 교수</div>
+      <div class="lab-keywords">
+        <span class="lab-keyword">Machine Intelligence</span>
+        <span class="lab-keyword">Healthcare AI</span>
+        <span class="lab-keyword">Deep Learning</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-logo">CHA University · 바이오헬스케어 특성화대학</div>
+  <div class="footer-dept">AI헬스케어융합학과</div>
+  <div class="footer-info">
+    경기도 포천시 해룡로 120 차의과학대학교<br>
+    Department of AI Healthcare Convergence
+  </div>
+  <div class="footer-copy">© 2025 CHA University. All rights reserved.</div>
+</footer>
+
+<!-- ===== SCROLL ANIMATION ===== -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, index * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
